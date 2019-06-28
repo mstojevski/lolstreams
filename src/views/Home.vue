@@ -2,7 +2,7 @@
   <div class="Home">
     <b-container class="bv-example-row">
       <b-row class="row">
-        <b-col cols="4" v-for="stream in streams" :key="stream.id">
+        <b-col md="4" sm="12" v-for="stream in streams" :key="stream.id">
           <StreamItem
             :username="stream.user_name"
             :title="stream.title"
@@ -61,5 +61,10 @@ export default {
 .row.display-flex > [class*="col-"] {
   display: flex;
   flex-direction: column;
+}
+@media (max-width: 768px) {
+  .Home {
+    padding: 25px;
+  }
 }
 </style>
