@@ -7,6 +7,7 @@
             :username="stream.user_name"
             :title="stream.title"
             :viewer_count="stream.viewer_count"
+            :thumbnail="stream.thumbnail_url"
           />
         </b-col>
       </b-row>
@@ -33,8 +34,18 @@ export default {
       }
     })
       .then(response => response.json())
-      // .then(data => console.log(data))
-      .then(blob => (this.streams = blob.data));
+      .then(blob => {
+        for (let stream in blob.data) {
+          const regex = /\{(.*?)\}/g;
+          blob.data[stream].thumbnail_url = blob.data[
+            stream
+          ].thumbnail_url.replace(regex, 250);
+
+          console.log(blob.data[stream].thumbnail_url);
+          this.streams = blob.data;
+        }
+        return this.streams;
+      });
   }
 };
 </script>
