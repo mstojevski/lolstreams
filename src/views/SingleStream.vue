@@ -1,10 +1,19 @@
 <template>
-  <div>Single</div>
+  <VueTwitchPlayer :channel="channel"></VueTwitchPlayer>
 </template>
 
 <script>
+import VueTwitchPlayer from "vue-twitch-player";
+
 export default {
-  name: "SingleStream"
+  components: {
+    VueTwitchPlayer
+  },
+  data() {
+    return {
+      channel: this.$route.params.channel
+    };
+  }
 };
 </script>
 

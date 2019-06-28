@@ -16,7 +16,7 @@
           <span class="live blink"></span>
         </b-card-text>
 
-        <router-link to="/streams + id">
+        <router-link :to="{ name: 'streams + username' }">
           <b-button variant="primary">Watch Stream</b-button>
         </router-link>
       </b-card>

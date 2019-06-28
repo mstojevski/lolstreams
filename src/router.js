@@ -24,7 +24,7 @@ export default new Router({
         import(/* webpackChunkName: "about" */ "./views/About.vue")
     },
     {
-      path: "/streams/:id",
+      path: "/streams/:channel",
       name: "SingleItem",
       component: SingleStream
     }

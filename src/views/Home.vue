@@ -41,9 +41,9 @@ export default {
             stream
           ].thumbnail_url.replace(regex, 250);
 
-          console.log(blob.data[stream].thumbnail_url);
           this.streams = blob.data;
         }
+        console.log(this.streams);
         return this.streams;
       });
   }

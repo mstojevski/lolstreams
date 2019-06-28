@@ -6,6 +6,9 @@ import BootstrapVue from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
+import LoadScript from "vue-plugin-load-script";
+
+Vue.use(LoadScript);
 Vue.use(BootstrapVue);
 
 Vue.config.productionTip = false;
