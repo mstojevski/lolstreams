@@ -34,16 +34,24 @@ export default {
       }
     })
       .then(response => response.json())
-      .then(blob => {
-        for (let stream in blob.data) {
+      .then(jsonData => {
+        for (let stream in jsonData.data) {
           const regex = /\{(.*?)\}/g;
-          blob.data[stream].thumbnail_url = blob.data[
-            stream
-          ].thumbnail_url.replace(regex, 250);
+          // Matching witdh and height
 
-          this.streams = blob.data;
+          let thumbnail = jsonData.data[stream].thumbnail_url;
+          const width = regex.exec(thumbnail);
+          const height = regex.exec(thumbnail);
+
+          jsonData.data[stream].thumbnail_url = jsonData.data[
+            stream
+          ].thumbnail_url.replace(width[0], 320);
+          jsonData.data[stream].thumbnail_url = jsonData.data[
+            stream
+          ].thumbnail_url.replace(height[0], 180);
+
+          this.streams = jsonData.data;
         }
-        console.log(this.streams);
         return this.streams;
       });
   }

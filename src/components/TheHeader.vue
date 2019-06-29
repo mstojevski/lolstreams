@@ -1,15 +1,6 @@
 <template>
-  <div>
-    <b-navbar toggleable="lg" type="dark" variant="info">
-      <b-navbar-brand href="#">LolStreams</b-navbar-brand>
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav>
-          <b-nav-item>Home</b-nav-item>
-          <b-nav-item>Top Games</b-nav-item>
-        </b-navbar-nav>
-      </b-collapse>
-    </b-navbar>
+  <div class="Header">
+    <h1 class="Header__title">LOL STREAMS</h1>
   </div>
 </template>
 
@@ -18,3 +9,14 @@ export default {
   name: "TheHeader"
 };
 </script>
+<style scoped>
+.Header {
+  text-align: center;
+  padding: 50px 0;
+  background-color: #0f1b4d;
+}
+.Header__title {
+  font-family: "Exo 2", sans-serif;
+  color: #fff;
+}
+</style>

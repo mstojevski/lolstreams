@@ -1,5 +1,9 @@
 <template>
-  <VueTwitchPlayer :channel="channel"></VueTwitchPlayer>
+  <VueTwitchPlayer
+    width="100%"
+    height="600"
+    :channel="channel"
+  ></VueTwitchPlayer>
 </template>
 
 <script>
@@ -16,5 +20,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped></style>

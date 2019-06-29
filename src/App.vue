@@ -2,18 +2,23 @@
   <div id="app">
     <TheHeader />
     <router-view />
-    <TheFooter />
   </div>
 </template>
 
 <script>
 import TheHeader from "./components/TheHeader.vue";
-import TheFooter from "./components/TheFooter";
 
 export default {
   components: {
-    TheHeader,
-    TheFooter
+    TheHeader
   }
 };
 </script>
+<style>
+h1,
+h2,
+p,
+h4 {
+  font-family: "Exo 2", sans-serif;
+}
+</style>
