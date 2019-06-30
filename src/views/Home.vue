@@ -28,17 +28,16 @@ export default {
     };
   },
   created() {
-    fetch("https://api.twitch.tv/helix/streams?game_id=21779", {
+    fetch(process.env.VUE_APP_API, {
       headers: {
-        "Client-ID": "sl3e7mshstysne2dhw44pa1e95ihtn"
+        "Client-ID": process.env.VUE_APP_CLIENT_ID
       }
     })
       .then(response => response.json())
       .then(jsonData => {
-        for (let stream in jsonData.data) {
-          const regex = /\{(.*?)\}/g;
+        Object.keys(jsonData.data).forEach(stream => {
           // Matching witdh and height
-
+          const regex = /\{(.*?)\}/g;
           let thumbnail = jsonData.data[stream].thumbnail_url;
           const width = regex.exec(thumbnail);
           const height = regex.exec(thumbnail);
@@ -51,8 +50,8 @@ export default {
           ].thumbnail_url.replace(height[0], 180);
 
           this.streams = jsonData.data;
-        }
-        return this.streams;
+          return this.streams;
+        });
       });
   }
 };
